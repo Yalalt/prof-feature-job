@@ -7,6 +7,7 @@ import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
+import SearchInput from './search-input';
 
 export default function AppShellContainer({ children, user }: { children: React.ReactNode; user: any }) {
   const [opened, { toggle }] = useDisclosure();
@@ -25,7 +26,9 @@ export default function AppShellContainer({ children, user }: { children: React.
             Professional Network
           </div>
           <div className='flex justify-end gap-5 h-full items-center p-5'>
-            <div>Search</div>
+            <div>
+              <SearchInput />
+            </div>
             <div>
               <Menu>
                 <Menu.Target>
