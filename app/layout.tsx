@@ -2,8 +2,12 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import '@mantine/core/styles.css';
+import '@mantine/notifications/styles.css';
+import '@/styles/editor.css';
 
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
+import '@mantine/tiptap/styles.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,7 +27,10 @@ export default async function RootLayout({
         <ColorSchemeScript />
       </head>
       <body className={inter.className}>
-          <MantineProvider defaultColorScheme='dark'>{children}</MantineProvider>
+        <MantineProvider defaultColorScheme='dark'>
+          <Notifications />
+          {children}
+        </MantineProvider>
       </body>
     </html>
   );
