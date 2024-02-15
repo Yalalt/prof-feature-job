@@ -11,6 +11,7 @@ export const users = pgTable('user', {
   firstName: text('first_name'),
   lastName: text('last_name'),
   jobTitle: text('job_title'),
+  bio: text("bio"),
 });
 
 export const accounts = pgTable(
