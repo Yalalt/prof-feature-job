@@ -15,7 +15,7 @@ export default function PaginationContainer({ total, value }: { total: number; v
         const num = parseInt(page);
         setActivePage(num);
     }
-  }, []);
+  }, [activePage, searchParams]);
 
   function handleChange(page: number) {
     setActivePage(page);
