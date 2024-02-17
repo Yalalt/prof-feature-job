@@ -23,7 +23,7 @@ export default function AppShellContainer({ children, user }: { children: React.
         <div className='flex justify-between h-full'>
           <div className='flex h-full items-center gap-5 p-5'>
             <Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm' />
-            Professional Network
+            Professional Network APP
           </div>
           <div className='flex justify-end gap-5 h-full items-center p-5'>
             <div>

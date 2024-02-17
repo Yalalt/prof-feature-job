@@ -11,7 +11,7 @@ import { notFound } from "next/navigation";
 export default async function Page() {
     const session = await getServerSession(authOptions);
     const user = await db.query.users.findFirst({
-        where: eq(users.id, session?.user.id),
+      where: eq(users.id, session?.user.id),
     });
 
     if(!user) {
