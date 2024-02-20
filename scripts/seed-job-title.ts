@@ -11,7 +11,7 @@ const JOB_TITLES = [
     "Data Engineer",
 ]
 
-async function main(){ 
+export default async function main(){ 
     const res = await db.query.users.findMany();
 
     for(let user of res) {
@@ -24,4 +24,4 @@ async function main(){
     pool.end();
 }
 
-main();
+if (require.main === module) main();
