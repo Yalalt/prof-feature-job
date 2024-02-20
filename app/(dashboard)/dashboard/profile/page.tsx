@@ -9,18 +9,18 @@ import { notFound } from "next/navigation";
 
 
 export default async function Page() {
-    const session = await getServerSession(authOptions);
-    const user = await db.query.users.findFirst({
-      where: eq(users.id, session?.user.id),
-    });
+  const session = await getServerSession(authOptions);
+  const user = await db.query.users.findFirst({
+    where: session?.user.id && eq(users.id, session.user.id),
+  });
 
-    if(!user) {
-        return notFound();
-    }
+  if (!user) {
+    return notFound();
+  }
 
   return (
     <div>
-        <UserForm user={user} />
+      <UserForm user={user} />
     </div>
-  )
+  );
 }
