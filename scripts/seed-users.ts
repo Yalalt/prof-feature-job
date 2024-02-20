@@ -23,7 +23,9 @@ export default async function main(){
         };
         await db.insert(users).values(newUser);
     }
-    pool.end();
 }
 
-if (require.main === module) main();
+if (require.main === module) {
+    main();
+    pool.end();
+}

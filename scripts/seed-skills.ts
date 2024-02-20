@@ -1,29 +1,21 @@
-import { db, pool } from "@/lib/db";
-import { skills } from "@/lib/schema";
-import { NewSkill } from "@/lib/types";
+import { db, pool } from '@/lib/db';
+import { skills } from '@/lib/schema';
+import { NewSkill } from '@/lib/types';
 import crypto from 'crypto';
 
-const data = [
-    "Next.js",
-    "React",
-    "PostgreSQL",
-    "Tailwind CSS",
-    "Node.js",
-    "Docker",
-    "Mantine",
-    "TypeScript",
-    "Vercel",
-]
+const data = ['Next.js', 'React', 'PostgreSQL', 'Tailwind CSS', 'Node.js', 'Docker', 'Mantine', 'TypeScript', 'Vercel'];
 
 export default async function main() {
-    for(let skill of data) {
-        const newSkill: NewSkill = {
-            id: crypto.randomUUID(),
-            name: skill,
-        }
-        await db.insert(skills).values(newSkill).onConflictDoNothing();
-    }
-    pool.end();
+  for (let skill of data) {
+    const newSkill: NewSkill = {
+      id: crypto.randomUUID(),
+      name: skill,
+    };
+    await db.insert(skills).values(newSkill).onConflictDoNothing();
+  }
 }
 
-if (require.main === module) main();
+if (require.main === module) {
+  main();
+  pool.end();
+}
